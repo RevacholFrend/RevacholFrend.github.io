@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xuita game — официальный сайт</title>
+  <meta name="description" content="Xuita game — игра в разработке. Новости, сообщество и скоро — скачать игру переданной самим разработчиком." />
+  <!-- google-site-verification: вставится после регистрации в Google Search Console -->
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #0b0e17; --card: #151a29; --border: #232a40;
+      --text: #e8ecf8; --text-dim: #8b93b3;
+      --accent-grad: linear-gradient(135deg, #7c5cff 0%, #4f8cff 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    header { border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
+      position: sticky; top: 0; background: rgba(11,14,23,.8); z-index: 10; }
+    header .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .02em; text-decoration: none; color: var(--text); }
+    .brand img { width: 32px; height: 32px; }
+    nav { display: flex; gap: 18px; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: .9rem; }
+    nav a:hover { color: var(--text); }
+    .hero { padding: 96px 0 80px; text-align: center;
+      background: radial-gradient(900px 500px at 50% -10%, #1c1440 0%, transparent 65%); }
+    .hero img { width: 96px; height: 96px; filter: drop-shadow(0 10px 30px rgba(124,92,255,.55)); }
+    h1 { font-size: 3.4rem; letter-spacing: -0.02em; margin-top: 26px;
+      background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    h1 span { display: block; font-size: 1.05rem; font-weight: 500; color: var(--text-dim); margin-top: 10px; -webkit-text-fill-color: var(--text-dim); }
+    p.lead { margin: 22px auto 0; max-width: 560px; color: #c4cbe8; line-height: 1.65; }
+    .cta { display: inline-flex; margin-top: 34px; padding: 14px 34px; border-radius: 999px;
+      background: var(--accent-grad); color: #fff; text-decoration: none; font-weight: 700;
+      box-shadow: 0 10px 40px rgba(124,92,255,.4); transition: transform .15s; width: max-content; }
+    .cta:hover { transform: translateY(-2px); }
+    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    section h2 { font-size: 1.5rem; margin-bottom: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .card b { display: block; margin-bottom: 8px; }
+    .card p { color: var(--text-dim); font-size: .9rem; line-height: 1.55; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--text-dim); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    a { color: #b9a8ff; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/"><img src="logo.svg" alt="" /> Xuita game</a>
+      <nav>
+        <a href="#about">О игре</a>
+        <a href="#dev">В разработке</a>
+        <a href="privacy.html">Конфиденциальность</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <img src="logo.svg" alt="Xuita game" />
+        <h1>Xuita game<span>официальный сайт игры</span></h1>
+        <p class="lead">Инди-игра в активной разработке. Скоро здесь появятся новости, патчноуты и возможность скачать игру напрямую через лаунчер.</p>
+        <a class="cta" href="#about">Подробнее об игре</a>
+      </div>
+    </div>
+
+    <section id="about"><div class="wrap">
+      <h2>О игре</h2>
+      <p class="lead" style="margin:0">Xuita game — игра от одного разработчика. Разработка идёт открыто: новости, сборки и обратная связь от сообщества публикуются по мере выхода обновлений.</p>
+    </div></section>
+
+    <section id="dev"><div class="wrap">
+      <h2>Сейчас в разработке</h2>
+      <div class="grid">
+        <div class="card"><b>🎮 Геймплей</b><p>Игра находится в активной разработке. Составляющие геймплея раскроем по мере готовности.</p></div>
+        <div class="card"><b>🚀 Релиз</b><p>Следите за новостями — дата и способ скачивания будут объявлены здесь и в лаунчере.</p></div>
+        <div class="card"><b>💬 Сообщество</b><p>Обратная связь: <a href="mailto:Rushgema@gmail.com">Rushgema@gmail.com</a></p></div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">
+    <span>© Xuita game</span>
+    <span><a href="privacy.html">Политика конфиденциальности</a> · <a href="mailto:Rushgema@gmail.com">Связь</a></span>
+  </div></footer>
+</body>
+</html>
