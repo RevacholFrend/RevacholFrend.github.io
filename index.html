@@ -3,90 +3,297 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xuita game — официальный сайт</title>
-  <meta name="description" content="Xuita game — игра в разработке. Новости, сообщество и скоро — скачать игру переданной самим разработчиком." />
+  <title>SAMOT — Твой мир. Твоя игра. Твой лаунчер.</title>
+  <meta name="description" content="SAMOT — экосистема дистрибуции игр и ПО: SAMOT Launcher для игроков, SAMOT Admin для разработчиков, SAMOT Packager для выпуска игр в два клика. Дельта-обновления, докачка с места обрыва, SHA-256-проверка каждого файла." />
   <meta name="google-site-verification" content="kIYG0ijsesOfuQOzFoZpax0GpHIKR_YiuLgTS_es8r8" />
-  <!-- google-site-verification: вставится после регистрации в Google Search Console -->
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta property="og:title" content="SAMOT — Твой мир. Твоя игра. Твой лаунчер." />
+  <meta property="og:description" content="SAMOT Launcher и SAMOT Admin: один установщик, автообновления, новости и баннеры прямо в лаунчере." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revacholfrend.github.io/" />
+  <meta property="og:image" content="https://revacholfrend.github.io/emblem.jpg" />
   <style>
     :root {
-      --bg: #0b0e17; --card: #151a29; --border: #232a40;
-      --text: #e8ecf8; --text-dim: #8b93b3;
-      --accent-grad: linear-gradient(135deg, #7c5cff 0%, #4f8cff 100%);
+      --bg: #0c0e14;
+      --bg-2: #10131b;
+      --card: #141822;
+      --border: #242a38;
+      --text: #ece7d8;
+      --text-dim: #a89f8a;
+      --bone: #e8e2d0;
+      --accent: #d8b25c;
+      --accent-2: #b98a3d;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    header { border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
-      position: sticky; top: 0; background: rgba(11,14,23,.8); z-index: 10; }
-    header .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .02em; text-decoration: none; color: var(--text); }
-    .brand img { width: 32px; height: 32px; }
-    nav { display: flex; gap: 18px; }
-    nav a { color: var(--text-dim); text-decoration: none; font-size: .9rem; }
-    nav a:hover { color: var(--text); }
-    .hero { padding: 96px 0 80px; text-align: center;
-      background: radial-gradient(900px 500px at 50% -10%, #1c1440 0%, transparent 65%); }
-    .hero img { width: 96px; height: 96px; filter: drop-shadow(0 10px 30px rgba(124,92,255,.55)); }
-    h1 { font-size: 3.4rem; letter-spacing: -0.02em; margin-top: 26px;
-      background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    h1 span { display: block; font-size: 1.05rem; font-weight: 500; color: var(--text-dim); margin-top: 10px; -webkit-text-fill-color: var(--text-dim); }
-    p.lead { margin: 22px auto 0; max-width: 560px; color: #c4cbe8; line-height: 1.65; }
-    .cta { display: inline-flex; margin-top: 34px; padding: 14px 34px; border-radius: 999px;
-      background: var(--accent-grad); color: #fff; text-decoration: none; font-weight: 700;
-      box-shadow: 0 10px 40px rgba(124,92,255,.4); transition: transform .15s; width: max-content; }
-    .cta:hover { transform: translateY(-2px); }
-    section { padding: 64px 0; border-top: 1px solid var(--border); }
-    section h2 { font-size: 1.5rem; margin-bottom: 18px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-    .card b { display: block; margin-bottom: 8px; }
-    .card p { color: var(--text-dim); font-size: .9rem; line-height: 1.55; }
-    footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--text-dim); font-size: .85rem; }
-    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    a { color: #b9a8ff; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* ═══ HEADER ═══ */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(12, 14, 20, .82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--bone); }
+    .brand img { width: 30px; height: 30px; }
+    .brand b { font-size: 1.15rem; letter-spacing: .14em; font-weight: 800; }
+    nav { display: flex; gap: 20px; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: .88rem; letter-spacing: .04em; }
+    nav a:hover { color: var(--bone); }
+    nav a.cta-nav { color: #0c0e14; background: var(--bone); padding: 8px 16px; font-weight: 700; }
+    nav a.cta-nav:hover { background: #fff; color: #0c0e14; }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      text-align: center;
+      padding: 72px 0 84px;
+      background:
+        radial-gradient(1000px 600px at 50% -20%, #1a1720 0%, transparent 60%),
+        var(--bg);
+    }
+    .hero img.emblem { width: min(360px, 74vw); height: auto; filter: drop-shadow(0 20px 60px rgba(216,178,92,.18)); }
+    .hero h1 {
+      margin-top: 30px;
+      font-size: clamp(3rem, 9vw, 5.2rem);
+      letter-spacing: .3em;
+      font-weight: 900;
+      color: var(--bone);
+      line-height: 1;
+      text-indent: .3em;
+    }
+    .hero .tagline { margin-top: 14px; color: var(--text-dim); font-size: 1.1rem; letter-spacing: .08em; }
+    .hero .sub { margin: 26px auto 0; max-width: 620px; color: #c9c2ae; font-size: 1.02rem; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 30px; font-weight: 800; letter-spacing: .05em;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--bone); color: #0c0e14; border-color: var(--bone); box-shadow: 0 12px 40px rgba(232,226,208,.12); }
+    .btn-primary:hover { background: #fff; }
+    .btn-ghost { background: transparent; color: var(--bone); }
+    .btn-ghost:hover { border-color: var(--bone); }
+    .hero-hint { margin-top: 18px; color: var(--text-dim); font-size: .82rem; }
+
+    /* ═══ SECTIONS ═══ */
+    section { padding: 72px 0; border-top: 1px solid var(--border); }
+    .eyebrow { color: var(--accent); font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 800; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--bone); letter-spacing: .02em; margin: 10px 0 28px; font-weight: 800; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .card h3 { color: var(--bone); font-size: 1.15rem; letter-spacing: .06em; }
+    .card p { color: var(--text-dim); font-size: .92rem; }
+    .card ul { list-style: none; margin: 4px 0 0; padding: 0; }
+    .card li { color: #c9c2ae; font-size: .9rem; padding: 3px 0 3px 18px; position: relative; }
+    .card li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    .card a.card-link { margin-top: auto; padding-top: 12px; color: var(--accent); text-decoration: none; font-weight: 700; letter-spacing: .04em; font-size: .9rem; }
+    .card a.card-link:hover { text-decoration: underline; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .feature { background: var(--bg-2); padding: 26px 22px; }
+    .feature b { color: var(--bone); display: block; margin-bottom: 8px; letter-spacing: .03em; }
+    .feature p { color: var(--text-dim); font-size: .9rem; }
+    .feature .num { color: var(--accent); font-size: .72rem; letter-spacing: .2em; font-weight: 800; }
+
+    .soon {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 110px 24px;
+      border-top: 1px solid var(--border);
+      background: url('wallpaper.png') center/cover no-repeat;
+    }
+    .soon::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(12,14,20,.25) 0%, rgba(12,14,20,.88) 78%); }
+    .soon-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .soon h2 { font-size: clamp(1.5rem, 4.4vw, 2.2rem); }
+    .soon p { color: #cfc8b4; }
+
+    .dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .dl-item {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 24px; text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .15s, transform .15s;
+    }
+    .dl-item:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .dl-item b { color: var(--bone); letter-spacing: .05em; font-size: 1.02rem; }
+    .dl-item span { color: var(--text-dim); font-size: .85rem; }
+    .dl-item .dl-note { color: var(--accent); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+
+    .note { margin-top: 18px; color: var(--text-dim); font-size: .82rem; text-align: center; }
+
+    footer { border-top: 1px solid var(--border); padding: 34px 0 46px; color: var(--text-dim); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
+    footer a { color: #c9c2ae; text-decoration: none; }
+    footer a:hover { color: var(--bone); }
+    .foot-brand { display: flex; align-items: center; gap: 10px; color: var(--bone); font-weight: 800; letter-spacing: .14em; }
+    .foot-brand img { width: 22px; height: 22px; }
+
+    @media (max-width: 900px) {
+      .cards, .features, .dl { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+      nav a:not(.cta-nav) { display: none; }
+      .hero h1 { letter-spacing: .18em; }
+    }
   </style>
 </head>
 <body>
-  <header>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="favicon.png" alt="SAMOT" /><b>SAMOT</b></a>
+    <nav>
+      <a href="#ecosystem">Экосистема</a>
+      <a href="#features">Возможности</a>
+      <a href="#games">Игры</a>
+      <a href="#developers">Разработчикам</a>
+      <a class="cta-nav" href="#download">Скачать</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
     <div class="wrap">
-      <a class="brand" href="/"><img src="logo.svg" alt="" /> Xuita game</a>
-      <nav>
-        <a href="#about">О игре</a>
-        <a href="#dev">В разработке</a>
-        <a href="privacy.html">Конфиденциальность</a>
-      </nav>
+      <img class="emblem" src="emblem.jpg" alt="SAMOT — эмблема" />
+      <h1>SAMOT</h1>
+      <p class="tagline">ТВОЙ МИР · ТВОЯ ИГРА · ТВОЙ ЛАУНЧЕР</p>
+      <p class="sub">Экосистема дистрибуции игр и ПО. Один установщик у игрока, один манифест у разработчика, никакой возни с обновлениями — SAMOT делает это сам.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#download">Скачать SAMOT Launcher</a>
+        <a class="btn btn-ghost" href="#developers">Я разработчик →</a>
+      </div>
+      <p class="hero-hint">Windows 10 и новее · бесплатно · исходный код открыт</p>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <div class="hero">
-      <div class="wrap">
-        <img src="logo.svg" alt="Xuita game" />
-        <h1>Xuita game<span>официальный сайт игры</span></h1>
-        <p class="lead">Инди-игра в активной разработке. Скоро здесь появятся новости, патчноуты и возможность скачать игру напрямую через лаунчер.</p>
-        <a class="cta" href="#about">Подробнее об игре</a>
+  <section id="ecosystem"><div class="wrap">
+    <span class="eyebrow">Что внутри</span>
+    <h2>Экосистема SAMOT</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>SAMOT Launcher</h3>
+        <p>Домашний лаунчер для игроков: несколько игр и программ в одном окне, новости прямо в приложении, карусель баннеров на главной.</p>
+        <ul>
+          <li>Автообновление игры и клиента</li>
+          <li>Новости и баннеры проекта</li>
+          <li>Несколько проектов в одном окне</li>
+        </ul>
+        <a class="card-link" href="https://github.com/RevacholFrend/samot-launcher">Исходники на GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>SAMOT Admin</h3>
+        <p>Панель администратора и разработчика: проекты и роли, новости, баннеры, баны игроков, аналитика, публикация обновлений клиента.</p>
+        <ul>
+          <li>Всё управление без SQL и кода</li>
+          <li>Публикация обновления клиента для всех</li>
+          <li>Аналитика устройств и выгрузка CSV</li>
+        </ul>
+        <a class="card-link" href="https://github.com/RevacholFrend/samot-admin">Исходники на GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>SAMOT Packager</h3>
+        <p>Утилита для разработчиков: выбирает папку игры, пакует файлы в паки с SHA-256, собирает манифест и инструкцию для GitHub Release.</p>
+        <ul>
+          <li>Релиз игры вместо часа возни</li>
+          <li>Автоопределение точки входа (.exe)</li>
+          <li>Портативный .exe, 72 МБ</li>
+        </ul>
+        <a class="card-link" href="https://github.com/RevacholFrend/SAMOT-releases/releases/tag/tools-v1.0.0">Скачать Packager →</a>
       </div>
     </div>
+  </div></section>
 
-    <section id="about"><div class="wrap">
-      <h2>О игре</h2>
-      <p class="lead" style="margin:0">Xuita game — игра от одного разработчика. Разработка идёт открыто: новости, сборки и обратная связь от сообщества публикуются по мере выхода обновлений.</p>
-    </div></section>
+  <section id="features"><div class="wrap">
+    <span class="eyebrow">Почему SAMOT</span>
+    <h2>Доведено до ума</h2>
+    <div class="features">
+      <div class="feature"><span class="num">01</span><b>Дельта-обновления</b><p>Скачиваются только изменённые файлы — паки и послойная проверка SHA-256. Новая версия игры без перекачки всей библиотеки.</p></div>
+      <div class="feature"><span class="num">02</span><b>Докачка с места обрыва</b><p>Оборвалась связь или перезапустился лаунчер — загрузка продолжается с того же байта, а не с нуля.</p></div>
+      <div class="feature"><span class="num">03</span><b>Проверка целостности</b><p>Каждый файл сверяется по SHA-256; отсутствующие и битые перекачиваются автоматически, точечно.</p></div>
+      <div class="feature"><span class="num">04</span><b>Новости внутри</b><p>Патчноты, анонсы и баннеры прямо в лаунчере — игрок узнаёт о событии без внешних соцсетей.</p></div>
+      <div class="feature"><span class="num">05</span><b>Одно окно — много игр</b><p>SAMOT Launcher открывает все ваши проекты из одной библиотеки: переключение в сайдбаре, у каждого свой прогресс и запуск.</p></div>
+      <div class="feature"><span class="num">06</span><b>Открытый код</b><p>Клиент, админка и база схемы — в открытых репозиториях. Никакой магии: видно, что и куда отправляется.</p></div>
+    </div>
+  </div></section>
 
-    <section id="dev"><div class="wrap">
-      <h2>Сейчас в разработке</h2>
-      <div class="grid">
-        <div class="card"><b>🎮 Геймплей</b><p>Игра находится в активной разработке. Составляющие геймплея раскроем по мере готовности.</p></div>
-        <div class="card"><b>🚀 Релиз</b><p>Следите за новостями — дата и способ скачивания будут объявлены здесь и в лаунчере.</p></div>
-        <div class="card"><b>💬 Сообщество</b><p>Обратная связь: <a href="mailto:Rushgema@gmail.com">Rushgema@gmail.com</a></p></div>
+  <section class="soon" id="games"><div class="wrap soon-inner">
+    <span class="eyebrow">Скоро в SAMOT</span>
+    <h2>Наши собственные игры</h2>
+    <p>Мы строим SAMOT не только как платформу. Внутри уже готовятся собственные игры — они будут распространяться через SAMOT Launcher, а обновления будут прилетать сами.</p>
+    <p style="margin-top:18px"><a class="btn btn-primary" href="mailto:rushgema@gmail.com?subject=SAMOT%20—%20уведомить%20о%20релизе">Уведомить о релизе</a></p>
+  </div></section>
+
+  <section id="developers"><div class="wrap">
+    <span class="eyebrow">Разработчикам</span>
+    <h2>Ваша игра внутри SAMOT — за пару вечеров</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>1. Соберите игру</h3>
+        <p>Скачайте <b>SAMOT Packager</b> → выберите папку игры → «Собрать релиз». Папка <code>game-dist</code> с паками и манифестом готова.</p>
       </div>
-    </div></section>
-  </main>
+      <div class="card">
+        <h3>2. Залейте на GitHub</h3>
+        <p>Прикрепите содержимое <code>game-dist</code> к релизу с тегом <code>vX.Y.Z</code> — игра окажется в вашем корпоративном репозитории.</p>
+      </div>
+      <div class="card">
+        <h3>3. Укажите манифест</h3>
+        <p>В админке → «📦 Релиз и манифест»: владелец, репозиторий, тег, вставьте <code>manifest.json</code>. Игроки получат игру по кнопке.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px; text-align:center"><a class="btn btn-ghost" href="https://github.com/RevacholFrend/samot-admin">Открыть SAMOT Admin →</a></p>
+  </div></section>
 
-  <footer><div class="wrap">
-    <span>© Xuita game</span>
-    <span><a href="privacy.html">Политика конфиденциальности</a> · <a href="mailto:Rushgema@gmail.com">Связь</a></span>
-  </div></footer>
+  <section id="download"><div class="wrap">
+    <span class="eyebrow">Скачать</span>
+    <h2>SAMOT для Windows</h2>
+    <div class="dl">
+      <a class="dl-item" href="https://github.com/RevacholFrend/samot-launcher/releases/download/v1.0.0/SAMOT.Launcher.Setup.1.0.0.exe">
+        <span class="dl-note">Для игроков</span>
+        <b>SAMOT Launcher</b>
+        <span>Установщик клиента, 86 МБ. Один раз установили — дальше игра обновляется сама.</span>
+      </a>
+      <a class="dl-item" href="https://github.com/RevacholFrend/samot-admin/releases/download/v1.0.0/SAMOT.Admin.Setup.1.0.0.exe">
+        <span class="dl-note">Для разработчиков</span>
+        <b>SAMOT Admin</b>
+        <span>Панель администратора: проекты, новости, обновления. 87 МБ.</span>
+      </a>
+      <a class="dl-item" href="https://github.com/RevacholFrend/SAMOT-releases/releases/download/tools-v1.0.0/SAMOT-Packager-1.0.0.exe">
+        <span class="dl-note">Утилита</span>
+        <b>SAMOT Packager</b>
+        <span>Сборка релиза игры в один клик: паки + SHA-256 + манифест. 72 МБ, portable.</span>
+      </a>
+    </div>
+    <p class="note">Установщики подписаны самоподписанным сертификатом SAMOT — при первом запуске Windows SmartScreen может показать предупреждение. Исходный код открыт: <a href="https://github.com/RevacholFrend/samot-launcher">samot-launcher</a> · <a href="https://github.com/RevacholFrend/samot-admin">samot-admin</a></p>
+  </div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-brand"><img src="favicon.png" alt="" />SAMOT</span>
+    <span>
+      <a href="https://github.com/RevacholFrend">GitHub</a> ·
+      <a href="privacy.html">Политика конфиденциальности</a> ·
+      <a href="mailto:rushgema@gmail.com">Связь с разработчиком</a>
+    </span>
+  </div>
+</footer>
+
 </body>
 </html>

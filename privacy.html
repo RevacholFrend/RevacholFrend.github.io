@@ -3,57 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Политика конфиденциальности — Xuita game</title>
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Политика конфиденциальности — SAMOT</title>
+  <meta name="description" content="Политика конфиденциальности проекта SAMOT: какие данные собирает лаунчер, зачем, где хранятся и как удалить." />
+  <link rel="icon" href="favicon.png" type="image/png" />
   <style>
-    :root { --bg:#0b0e17; --card:#151a29; --border:#232a40; --text:#e8ecf8; --dim:#8b93b3; --grad:linear-gradient(135deg,#7c5cff,#4f8cff); }
+    :root { --bg:#0c0e14; --card:#141822; --border:#242a38; --text:#ece7d8; --dim:#a89f8a; --bone:#e8e2d0; --accent:#d8b25c; }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; line-height:1.7; }
-    .wrap { max-width:820px; margin:0 auto; padding:56px 24px 80px; }
-    h1 { font-size:2rem; margin-bottom:8px; background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .upd { color:var(--dim); font-size:.85rem; margin-bottom:28px; }
-    h2 { font-size:1.15rem; margin:26px 0 8px; }
-    p, li { color:#c4cbe8; font-size:.95rem; }
+    .wrap { max-width:820px; margin:0 auto; padding:56px 24px 90px; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--bone); margin-bottom:34px; }
+    .brand img { width:34px; height:34px; }
+    .brand b { letter-spacing:.14em; font-weight:800; }
+    h1 { font-size:2rem; margin-bottom:6px; color:var(--bone); letter-spacing:.02em; }
+    .upd { color:var(--dim); font-size:.85rem; margin-bottom:30px; }
+    h2 { font-size:1.15rem; margin:28px 0 10px; color:var(--bone); }
+    p, li { color:#cfc8b4; font-size:.95rem; }
     ul { padding-left:22px; margin-top:8px; }
-    a { color:#b9a8ff; }
-    code { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:2px 6px; font-size:.85em; }
+    a { color:var(--accent); }
+    code { background:var(--card); border:1px solid var(--border); padding:2px 7px; font-size:.85em; }
+    .back { display:inline-block; margin-top:36px; color:var(--dim); text-decoration:none; font-size:.9rem; }
+    .back:hover { color:var(--bone); }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <a class="brand" href="/"><img src="favicon.png" alt="SAMOT" /><b>SAMOT</b></a>
     <h1>Политика конфиденциальности</h1>
-    <p class="upd">Последнее обновление: 8 ноября 2026 г.</p>
+    <p class="upd">Последнее обновление: 12 ноября 2026 г.</p>
 
-    <p>Xuita game ("игра", "мы") уважает вашу конфиденциальность. Эта политика описывает, какие данные обрабатываются при использовании сайта и лаунчера игры, и зачем.</p>
+    <p>SAMOT («мы», «нас») — проект команды разработчиков SAMOT. Эта страница описывает, какие данные обрабатывает лаунчер SAMOT и само приложение, зачем, и как их удалить.</p>
 
-    <h2>1. Какие данные собираются</h2>
+    <h2>1. Какие данные мы собираем</h2>
     <ul>
-      <li><b>Аккаунт:</b> email и пароль (в зашифрованном виде через Supabase Auth) или данные вашего Google-аккаунта при входе через Google (адрес email, имя и изображение профиля).</li>
-      <li><b>Данные приложения:</b> прогресс/настройки хранятся локально на вашем устройстве и/или в базе Supabase, к которой имеет доступ только владелец проекта.</li>
-      <li><b>Технические данные:</b> лаунчер не собирает телеметрию, геолокацию, контакты и файлы пользователя.</li>
+      <li><b>Аккаунт:</b> email и пароль (только в зашифрованном виде — аутентификация через Supabase Auth) либо Google-аккаунт при входе «Войти через Google» (email и имя профиля из вашего аккаунта Google).</li>
+      <li><b>Данные об устройстве и сессии:</b> имя/модель устройства, версия ОС, версия приложения, IP-адрес, метки времени сеансов и запусков.</li>
+      <li><b>Данные об использовании:</b> установленные проекты, история загрузок, время запусков, тексты и вложения баг-репортов (включая скриншоты), которые вы отправляете сами.</li>
     </ul>
 
-    <h2>2. Зачем это нужно</h2>
+    <h2>2. Зачем эти данные</h2>
     <ul>
-      <li>Авторизация и идентификация пользователя.</li>
-      <li>Публикация новостей и обновлений игры в лаунчере.</li>
-      <li>Связь с разработчиком и поддержка.</li>
+      <li>Чтобы создать ваш аккаунт и держать его в безопасности.</li>
+      <li>Чтобы скачивать и обновлять игры и ПО в лаунчере.</li>
+      <li>Чтобы доставлять новости и уведомления разработчиков.</li>
+      <li>Чтобы блокировать нарушителей и предотвращать злоупотребления.</li>
+      <li>Чтобы рассматривать баг-репорты и обращения в поддержку.</li>
+      <li>Для агрегированной аналитики (без идентификации конкретного пользователя).</li>
     </ul>
 
     <h2>3. Кому передаются данные</h2>
-    <p>Данные хранятся в инфраструктуре Supabase (ЕС, регион Frankfurt) и Google (при входе через Google). Мы не продаём и не передаём персональные данные третьим лицам в маркетинговых целях.</p>
+    <p>Хостинг и хранение — <b>Supabase Inc.</b> (США/ЕС, по договору обработки данных DPA). Вход «Войти через Google» обрабатывается <b>Google</b>. Мы не продаём и не передаём данные третьим лицам никому больше, кроме случаев, прямо требующих этого по закону.</p>
 
     <h2>4. Ваши права</h2>
-    <p>Вы можете запросить удаление аккаунта и связанных данных, написав на <a href="mailto:Rushgema@gmail.com">Rushgema@gmail.com</a>. Мы выполним запрос в разумный срок.</p>
+    <p>Вы вправе запросить копию своих данных, их исправление или полное удаление — напишите на <a href="mailto:rushgema@gmail.com">rushgema@gmail.com</a> или воспользуйтесь «Настройки» → «Удалить мой аккаунт и все данные» внутри лаунчера. Удаление данных выполняется в разумный срок.</p>
 
     <h2>5. Cookies и localStorage</h2>
-    <p>Мы не используем рекламные cookies. Технические данные сохраняются в <code>localStorage</code> вашего браузера/лаунчера только для работы авторизации.</p>
+    <p>Лаунчер не использует рекламные cookies. Технические данные (токен сессии, настройки интерфейса, согласие с документами) хранятся в <code>localStorage</code> вашего устройства и в зашифрованном хранилище Supabase.</p>
 
     <h2>6. Изменения политики</h2>
-    <p>Актуальная версия всегда доступна по этому адресу. При существенных изменениях (новая собираемость данных) мы уведомим пользователей.</p>
+    <p>При существенных изменениях мы опубликуем новую версию здесь и предупредим в лаунчере. Продолжение использования означает согласие с обновлениями.</p>
 
     <h2>7. Контакты</h2>
-    <p>По вопросам конфиденциальности: <a href="mailto:Rushgema@gmail.com">Rushgema@gmail.com</a></p>
+    <p>По вопросам конфиденциальности: <a href="mailto:rushgema@gmail.com">rushgema@gmail.com</a></p>
+
+    <a class="back" href="/">← Назад на главную</a>
   </div>
 </body>
 </html>
